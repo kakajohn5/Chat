@@ -2,8 +2,10 @@ import React, { useState,useEffect } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import "../sass/utils/_utils.scss"
 import "../sass/components/_register.scss"
-import {useDispatch,useSelector} from "react-redux"
-
+/*import {useDispatch,useSelector} from "react-redux"
+import { userRegister } from '../store/actions/authAction';
+import { useAlert } from 'react-alert';
+import { ERROR_CLEAR, SUCCESS_MESSAGE_CLEAR } from '../store/types/authType';*/
 const Login = () => {
 
     
