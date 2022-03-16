@@ -9,14 +9,14 @@
         .card-header{
             h3{
                 text-align: center;
-                color: #fff;
+                color: #ffffff;
             }
         }
         .card-body{
             .form-group{
                 .form-control{
                     border-radius: 10px;
-                    color: #fff;
+                    color: #ffffff;
                 }
                 &:last-child{
                     margin-bottom: 0px;
@@ -25,7 +25,11 @@
                     text-align: center;
                     a{
                         text-decoration: none;
-                        color: #fff;
+                        color: #ffffff;
+                    }
+                    a:hover{
+                        text-decoration: none;
+                        color: #b9a0a0;
                     }
                 }
                 .file-image{

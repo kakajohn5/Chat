@@ -32,8 +32,18 @@ label{
     text-transform: uppercase;
     padding: 12px;
     text-align: center;
-    background-color: #101a23eb;
+    background-color: #432d31;
     border: none;
     cursor: pointer;
 }
-
+.btn:hover{
+    border-radius: 10px;
+    outline: none;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 12px;
+    text-align: center;
+    background-color: #5a3e43;
+    border: none;
+    cursor: pointer;
+}
