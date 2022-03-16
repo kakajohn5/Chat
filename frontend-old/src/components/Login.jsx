@@ -7,9 +7,7 @@ import { userRegister } from '../store/actions/authAction';
 import { useAlert } from 'react-alert';
 import { ERROR_CLEAR, SUCCESS_MESSAGE_CLEAR } from '../store/types/authType';*/
 const Login = () => {
-
-    
-
+   
      return (
           <div className='register'>
           <div className='card'>

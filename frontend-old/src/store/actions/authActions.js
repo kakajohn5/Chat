@@ -4,7 +4,7 @@ import {REGISTER_FAIL,REGISTER_SUCCESS,USER_LOGIN_SUCCESS,USER_LOGIN_FAIL} from 
 export const userRegister = (data) => {
      return async (dispatch) => {
 
-          const config = {
+         /* const config = {
                headers: {
                     'Content-Type':'application/josn'
                } 
@@ -28,11 +28,11 @@ export const userRegister = (data) => {
                          error : error.response.data.error.errorMessage 
                     }
                 })
-          }
+          }*/
 
      }
 }
-
+/*
 export const userLogin = (data) => {
     return async (dispath) => {
 
@@ -77,6 +77,6 @@ export const userLogout = () => async(dispatch) => {
 
      }
 }
-
+*/
 
 
