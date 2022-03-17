@@ -4,7 +4,7 @@ import {useDispatch,useSelector} from "react-redux"
 import { userRegister } from '../store/actions/authActions';
 import { useAlert } from 'react-alert';
 import { ERROR_CLEAR, SUCCESS_MESSAGE_CLEAR } from '../store/types/authType';
-
+import "../main.scss"
 const Register = () => {
      const navigate = useNavigate();
      const alert = useAlert();
@@ -125,7 +125,7 @@ const Register = () => {
 
 
                <div className='form-group'>
-     <span><Link to="/messenger/login"> Login Your Account </Link></span>
+     <span><Link to="/med4u/login"> Login Your Account </Link></span>
                </div>  
           </form> 
      </div>

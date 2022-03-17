@@ -1,7 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
-import "../sass/utils/_utils.scss"
-import "../sass/components/_register.scss"
+import "../main.scss"
 /*import {useDispatch,useSelector} from "react-redux"
 import { userRegister } from '../store/actions/authAction';
 import { useAlert } from 'react-alert';
