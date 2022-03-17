@@ -2,15 +2,15 @@ import React, { useState,useEffect } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import {useDispatch,useSelector} from "react-redux"
 import { userRegister } from '../store/actions/authActions';
-//import { useAlert } from 'react-alert';
+import { useAlert } from 'react-alert';
 import { ERROR_CLEAR, SUCCESS_MESSAGE_CLEAR } from '../store/types/authType';
 
 const Register = () => {
      const navigate = useNavigate();
-    // const alert = useAlert();
+     const alert = useAlert();
 
      const {loading,authenticate,error,successMessage,myInfo} = useSelector(state=>state.auth);
-    // console.log(myInfo);
+    console.log(myInfo);
 
     const dispatch = useDispatch();
 
@@ -32,7 +32,7 @@ const Register = () => {
      }
 
      const fileHendle = e =>{
-          if(e.target.files.length !==0){
+          if(e.target?.files.length !==0){
                setstate({
                     ...state,
                     [e.target.name] : e.target.files[0]
@@ -49,14 +49,14 @@ const Register = () => {
 
           const {userName,email,password,confirmPassword, image} = state;
           e.preventDefault();
-          console.log(state)
+         // console.log(state)
          const formData = new FormData();
-/* 
+
          formData.append('userName',userName);
           formData.append('email',email);
           formData.append('password',password);
           formData.append('confirmPassword',confirmPassword);
-          formData.append('image',image);*/
+          formData.append('image',image);
          console.log(state)
          dispatch(userRegister(formData));  
      }
