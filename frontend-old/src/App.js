@@ -11,11 +11,8 @@ function App() {
     <div>
       <BrowserRouter>
     <Routes>
-      <Route path="/med4u/login" element={<Login />} />
-      <Route path="/med4u/register" element={<Register />} /> 
-
-
-      
+      <Route path="/messenger/login" element={<Login />} />
+      <Route path="/messenger/register" element={<Register />} /> 
     </Routes>
   </BrowserRouter>,
       

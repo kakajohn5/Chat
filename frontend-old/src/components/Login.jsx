@@ -30,7 +30,8 @@ const Login = () => {
 
      const login = (e) => {
           e.preventDefault();
-          dispatch(userLogin(state))
+          //dispatch(userLogin(state))
+          console.log(state)
      }
 
      useEffect(()=>{
@@ -76,7 +77,7 @@ const Login = () => {
 
 
                <div className='form-group'>
-     <span><Link to="/med4u/register"> Don't have any Account </Link></span>
+     <span><Link to="/messenger/register"> Don't have any Account </Link></span>
                </div>  
           </form> 
      </div>

@@ -4,15 +4,16 @@ import {useDispatch,useSelector} from "react-redux"
 import { userRegister } from '../store/actions/authActions';
 import { useAlert } from 'react-alert';
 import { ERROR_CLEAR, SUCCESS_MESSAGE_CLEAR } from '../store/types/authType';
-import "../main.scss"
+
 const Register = () => {
+
      const navigate = useNavigate();
      const alert = useAlert();
 
      const {loading,authenticate,error,successMessage,myInfo} = useSelector(state=>state.auth);
-    console.log(myInfo);
+     console.log(myInfo);
 
-    const dispatch = useDispatch();
+     const dispatch = useDispatch();
 
      const [state,setstate] = useState({
           userName : '',
@@ -32,7 +33,7 @@ const Register = () => {
      }
 
      const fileHendle = e =>{
-          if(e.target?.files.length !==0){
+          if(e.target.files.length !==0){
                setstate({
                     ...state,
                     [e.target.name] : e.target.files[0]
@@ -45,20 +46,22 @@ const Register = () => {
           }
           reader.readAsDataURL(e.target.files[0]);
      }
+
      const register = e =>{
 
           const {userName,email,password,confirmPassword, image} = state;
           e.preventDefault();
-         // console.log(state)
-         const formData = new FormData();
 
-         formData.append('userName',userName);
+          const formData = new FormData();
+
+          formData.append('userName',userName);
           formData.append('email',email);
           formData.append('password',password);
           formData.append('confirmPassword',confirmPassword);
           formData.append('image',image);
-         console.log(state)
-         dispatch(userRegister(formData));  
+
+         // dispatch(userRegister(formData));   
+         console.log(state)       
      }
 
      useEffect(()=>{
@@ -75,6 +78,7 @@ const Register = () => {
           }
 
      },[successMessage,error])
+
 
   return (
      <div className='register'>
@@ -125,7 +129,7 @@ const Register = () => {
 
 
                <div className='form-group'>
-     <span><Link to="/med4u/login"> Login Your Account </Link></span>
+     <span><Link to="/messenger/login"> Login Your Account </Link></span>
                </div>  
           </form> 
      </div>
