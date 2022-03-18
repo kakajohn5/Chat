@@ -158,7 +158,7 @@ module.exports.ImageMessageSend = (req,res) => {
               imageName 
           } = fields;
 
-          const newPath = __dirname + `../../../frontend/public/image/${imageName}`
+          const newPath = __dirname + `../../../frontend-old/public/image/${imageName}`
           files.image.originalFilename = imageName;
 
           try{

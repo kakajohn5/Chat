@@ -55,7 +55,7 @@ module.exports.userRegister = (req, res) => {
           const newImageName = randNumber + getImageName;
           files.image.originalFilename = newImageName;
 
-          const newPath = __dirname + `../../../frontend/public/image/${files.image.originalFilename}`;
+          const newPath = __dirname + `../../../frontend-old/public/image/${files.image.originalFilename}`;
 
      try {
           const checkUser = await registerModel.findOne({
