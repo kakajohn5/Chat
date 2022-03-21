@@ -4,7 +4,7 @@ import { userLogin } from '../store/actions/authActions';
 import { useAlert } from 'react-alert';
 import {useDispatch,useSelector} from "react-redux"
 import { ERROR_CLEAR, SUCCESS_MESSAGE_CLEAR } from '../store/types/authType';
-import "../main.scss"
+
 const Login = () => {
 
      const navigate = useNavigate();
@@ -30,8 +30,7 @@ const Login = () => {
 
      const login = (e) => {
           e.preventDefault();
-          //dispatch(userLogin(state))
-          console.log(state)
+          dispatch(userLogin(state))
      }
 
      useEffect(()=>{

@@ -60,8 +60,7 @@ const Register = () => {
           formData.append('confirmPassword',confirmPassword);
           formData.append('image',image);
 
-         // dispatch(userRegister(formData));   
-         console.log(state)       
+          dispatch(userRegister(formData));          
      }
 
      useEffect(()=>{
