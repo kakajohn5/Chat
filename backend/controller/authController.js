@@ -10,7 +10,7 @@ const console = require('console');
 module.exports.userRegister = (req, res) => {
 
      const form = formidable();
-     form.parse(req, async (_err, fields, files) => {
+     form.parse(req, async (err, fields, files) => {
 
      const {
           userName, email, password,confirmPassword
@@ -20,19 +20,19 @@ module.exports.userRegister = (req, res) => {
      const error = [];
 
      if(!userName){
-          error.push('Please enter your user name');
+          error.push('Please provide your user name');
      }
      if(!email){
-          error.push('Please enter your Email');
+          error.push('Please provide your Email');
      }
      if(email && !validator.isEmail(email)){
-          error.push('Email is invalid');
+          error.push('Please provide a Valid Email');
      }
      if(!password){
-          error.push('Please enter your Password');
+          error.push('Please provide a Password');
      }
      if(!confirmPassword){
-          error.push('Please enter your confirm Password');
+          error.push('Confirm Password can not be empty');
      }
      if(password && confirmPassword && password !== confirmPassword){
           error.push('Passwords do not match');
@@ -41,7 +41,7 @@ module.exports.userRegister = (req, res) => {
           error.push('Password must be at least 6 characters');
      }
      if(Object.keys(files).length === 0){
-          error.push('Profile image is mandatory');
+          error.push('Profile picture is required');
      }
      if(error.length > 0){
           res.status(400).json({
@@ -55,7 +55,7 @@ module.exports.userRegister = (req, res) => {
           const newImageName = randNumber + getImageName;
           files.image.originalFilename = newImageName;
 
-          const newPath = __dirname + `../../../frontend-old/public/image/${files.image.originalFilename}`;
+          const newPath = __dirname + `../../../frontend/public/image/${files.image.originalFilename}`;
 
      try {
           const checkUser = await registerModel.findOne({
@@ -64,7 +64,7 @@ module.exports.userRegister = (req, res) => {
           if(checkUser) {
                res.status(404).json({
                     error: {
-                         errorMessage : ['This email already exists']
+                         errorMessage : ['Your email already exited']
                     }
                })
           }else{
@@ -90,7 +90,7 @@ module.exports.userRegister = (req, res) => {
 const options = { expires : new Date(Date.now() + process.env.COOKIE_EXP * 24 * 60 * 60 * 1000 )}
 
      res.status(201).cookie('authToken',token, options).json({
-          successMessage : 'Register Successful',token
+          successMessage : 'Welcome',token
      })
 
                           
@@ -124,13 +124,13 @@ module.exports.userLogin = async (req,res) => {
       const error = [];
       const {email,password} = req.body;
       if(!email){
-          error.push('Please provide your Email');
+          error.push('Email is required');
      }
      if(!password){
-          error.push('Please provide your Passowrd');
+          error.push('Password is required');
      }
      if(email && !validator.isEmail(email)){
-          error.push('Please provide your Valid Email');
+          error.push('Confirm password can not be empty');
      }
      if(error.length > 0){
           res.status(400).json({
@@ -161,20 +161,20 @@ module.exports.userLogin = async (req,res) => {
       const options = { expires : new Date(Date.now() + process.env.COOKIE_EXP * 24 * 60 * 60 * 1000 )}
 
      res.status(200).cookie('authToken',token, options).json({
-          successMessage : 'Your Login Successful',token
+          successMessage : 'Welcome back',token
      })
 
                     } else{
                          res.status(400).json({
                               error: {
-                                   errorMessage : ['Invalid password']
+                                   errorMessage : ['Password not Valid']
                               }
                          })
                     }
                } else{
                     res.status(400).json({
                          error: {
-                              errorMessage : ['Invalid email']
+                              errorMessage : ['Email Not Found']
                          }
                     })
                }
@@ -183,7 +183,7 @@ module.exports.userLogin = async (req,res) => {
           } catch{
                res.status(404).json({
                     error: {
-                         errorMessage : ['Internal Sever Error']
+                         errorMessage : ['Internal Server Error']
                     }
                })
 
@@ -192,7 +192,7 @@ module.exports.userLogin = async (req,res) => {
 
 }
 
-module.exports.userLogout = (_req,res) => {
+module.exports.userLogout = (req,res) => {
      res.status(200).cookie('authToken', '').json({
           success : true
      })

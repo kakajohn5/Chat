@@ -20,7 +20,7 @@ app.use('/api/messenger',messengerRoute);
 
 const PORT = process.env.PORT || 5000
 app.get('/', (req, res)=>{
-     res.send('This is from backend Server')
+     res.send('This is from backend Sever')
 })
 
 databaseConnect();
